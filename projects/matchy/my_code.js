@@ -124,33 +124,20 @@ function remove(animalName) {
 
 // function that creates an animal
 
-
 function create(animalObject) {
-  var result = "";
-  if (animalObject.name.length > 0 && animalObject.species.length > 0) {
+
+  if (animalObject.name && animalObject.species) {
+    var noDuplicate = true;
     for (var i = 0; i < animals.length; i++) {
-        if (animalObject.name === animals[i].name) {
-            result = animalObject.name;
-        }
-        if (result === "") {
-          return animals.push(animalObject)
-        } 
+      if (animalObject.name === animals[i].name) {
+        noDuplicate = false;
+      }
     }
-  return animals;  
-  } 
+    if(noDuplicate) {
+      animals.push(animalObject);      
+    }
+  }
 }
-
-
-
-create({
-  name: "Dick",
-  species: "derp",
-  noises: ["Zzz", "Ffff", "Skitter"],
-});
-
-console.log(animals);
-
-
 
 
 
