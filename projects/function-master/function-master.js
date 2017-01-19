@@ -92,3 +92,14 @@ function isFriend(checkIfFriend, object){
   }
 }
 
+function nonFriend(name, data){
+  let friends = ["Jimmy", "Bob", "Liza", "Sara"];
+  var nameIndex = friends.indexOf(name);
+  friends.splice(nameIndex, 1);
+  for (let i = 0; i < data.length; i++){
+    if (friends.includes(data[i])) {
+      var index = friends.indexOf(data[i]);
+      friends.splice(index, 1);  
+    }  
+  } return friends;
+}
