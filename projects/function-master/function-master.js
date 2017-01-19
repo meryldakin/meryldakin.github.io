@@ -92,7 +92,7 @@ function isFriend(checkIfFriend, object){
   }
 }
 
-function nonFriend(name, data){
+function nonFriends(name, data){
   let friends = ["Jimmy", "Bob", "Liza", "Sara"];
   var nameIndex = friends.indexOf(name);
   friends.splice(nameIndex, 1);
@@ -102,4 +102,23 @@ function nonFriend(name, data){
       friends.splice(index, 1);  
     }  
   } return friends;
+}
+
+function updateObject(object, key, value){
+  object[key] = value;
+  return object;
+}
+
+function removeProperties(data, arrayStrings){
+ for (let i = 0; i < arrayStrings.length; i++){
+   delete data[arrayStrings[i]];
+ }
+ return data;
+}
+
+function dedup(array){
+  var dedupArray = array.filter(function (item, indexNum, array) {
+        return array.indexOf(item) === indexNum;
+    })
+  return dedupArray;
 }
