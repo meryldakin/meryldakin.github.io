@@ -93,16 +93,26 @@ function isFriend(checkIfFriend, object){
 }
 
 function nonFriends(name, data){
-  let friends = ["Jimmy", "Bob", "Liza", "Sara"];
-  var nameIndex = friends.indexOf(name);
-  friends.splice(nameIndex, 1);
+  let nameArray = []; 
+  for (let i = 0; i < data.length; i++) {
+    nameArray.push(data[i].name);
+  } // ["Jimmy", "Bob", "Liza", "Sara"]
+ 
+  if (nameArray.includes(name)) {
+    nameArray.splice(nameArray.indexOf(name), 1);
+  }  
   for (let i = 0; i < data.length; i++){
-    if (friends.includes(data[i])) {
-      var index = friends.indexOf(data[i]);
-      friends.splice(index, 1);  
-    }  
-  } return friends;
+    if (name === data[i].name) {
+      for (let j = 0; j < data[i].friends.length; j++){
+        if (nameArray.includes(data[i].friends[j])){
+          nameArray.splice(nameArray.indexOf(data[i].friends[j]), 1);
+        }  
+      }
+    }
+  } 
+  return nameArray;
 }
+
 
 function updateObject(object, key, value){
   object[key] = value;
@@ -110,8 +120,8 @@ function updateObject(object, key, value){
 }
 
 function removeProperties(data, arrayStrings){
- for (let i = 0; i < arrayStrings.length; i++){
-   delete data[arrayStrings[i]];
+  for (let i = 0; i < arrayStrings.length; i++){
+    delete data[arrayStrings[i]];
  }
  return data;
 }

@@ -58,13 +58,11 @@ var friends = [];
 
 // make function to select random animal name 
 function randomAnimal (array) {
-  
   function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
   }
-  
   return array[getRandomInt(0,4)].name;
   
 }
@@ -84,7 +82,7 @@ animals[3].friends = friends;
 
 function search(animalName) {
   for (var i = 0; i < animals.length; i++) {
-   if (animals[i].name === animalName){
+   if (animals[i].name.toLowerCase() === animalName.toLowerCase()){
      return animals[i];
    }
   }
@@ -101,15 +99,6 @@ function edit(animalName, newObject) {
    }
   }  
 }
-
-/*edit("Jerome", {
-  species: "elephant",
-  name: "Eleanor",
-  noises: ["honk", "soprano", "sneeze"]
-});
-
-console.log(animals);*/
-
 
 // function that removes an animal
 
