@@ -490,18 +490,19 @@ if (test){
 */
 
 _.reduce = function (array, action, seed){
-  let initialResult;
+  let counter;
   if (seed === undefined){
-    initialResult = array[0];
+    counter = array[0];
+    let reducedArray = array.slice(1);
+    _.each(reducedArray, function(value, index, collection){
+      counter = action(counter, value, index);
+    });
   } else {
-    initialResult = seed;
-  }
-  let reducedValue = initialResult;
-  let arrayToReduce = array.slice(1);
-  _.each(arrayToReduce, function(value, index, collection){
-    reducedValue = action(reducedValue, value, index);
-  });
-  return reducedValue;
+  counter = seed;
+    _.each(array, function(value, index, collection){
+      counter = action(counter, value, index);
+    });
+  }return counter;
 };
 
 /** _.extend()
