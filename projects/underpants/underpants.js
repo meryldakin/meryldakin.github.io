@@ -64,7 +64,7 @@ _.typeOf = function(value) {
           return "object";
         }
     }
-}
+};
 
 /** _.first()
 * Arguments:
@@ -103,7 +103,7 @@ _.first = function(array, number) {
     } else {
         return [];
     }
-}    
+};
 
 
 /** _.last()
@@ -143,7 +143,7 @@ _.last = function(array, number) {
     } else {
         return [];
     }
-}
+};
 
 /** _.each()
 * Arguments:
@@ -171,7 +171,7 @@ _.each = function (collection, action){
           action(collection[key], key, collection);
       }
     } 
-}
+};
 
 /** _.indexOf()
 * Arguments:
@@ -190,16 +190,17 @@ _.each = function (collection, action){
 */
 
 _.indexOf = function (array, value){
-    if (array.includes(!value)){
+    var positionValue = [];
+    if (array.includes(value) === false){
         return -1;
     } else {
         for (let i = 0; i < array.length; i++) {
-            if (value === i) {
-                return array[i];
+            if (value === array[i]) {
+               positionValue.push(i);
             }
         }
-    }
-}
+      } return positionValue[0];
+};
 
 
 /** _.filter()
@@ -217,7 +218,15 @@ _.indexOf = function (array, value){
 * Extra Credit:
 *   use _.each in your implementation
 */
-
+_.filter = function (collection, test) {
+    const filtered = [];
+    _.each(collection, function (value, position, collection) {
+        if(test(value, position, collection)){
+            filtered.push(value);
+        }
+    });
+    return filtered;
+};
 
 /** _.reject()
 * Arguments:
@@ -232,6 +241,18 @@ _.indexOf = function (array, value){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+
+
+_.reject = function (array, test) {
+    const rejectedElements = [];
+    _.filter(array, function(element, index, array){
+        if(test(element, index, array) === false){
+            rejectedElements.push(element);
+        }
+    });
+  return rejectedElements;
+  
+};
 
 /** _.partition()
 * Arguments:
@@ -252,6 +273,26 @@ _.indexOf = function (array, value){
 }
 */
 
+_.partition = function (array, test) {
+    const partitionedArrays = [];
+    const truthyArray = [];
+    const falsyArray = [];
+    _.filter(array, function(element, index, array){
+       if(test(element, index, array)) {
+           truthyArray.push(element);
+       }
+    });
+    _.reject(array, function(element, index, array){
+       if(test(element, index, array) === false) {
+           falsyArray.push(element);
+       }
+    });
+    partitionedArrays.push(truthyArray, falsyArray);
+    return partitionedArrays;
+ 
+};
+
+
 
 /** _.unique()
 * Arguments:
@@ -262,6 +303,14 @@ _.indexOf = function (array, value){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+_.unique = function (array) {
+  var uniqueValues = _.filter(array, function (element, index, array) {
+        return _.indexOf(array, element) === index;
+    });
+  return uniqueValues;
+};
+
 
 
 /** _.map()
@@ -280,6 +329,14 @@ _.indexOf = function (array, value){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, action) {
+    const mappedArray = [];
+    _.each(collection, function (element, index, array){
+      mappedArray.push(action(element, index, array));
+    });
+    return mappedArray;
+};
+
 
 /** _.pluck()
 * Arguments:
@@ -291,6 +348,12 @@ _.indexOf = function (array, value){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function pluck(arrOfObj, property) {
+  return _.map(arrOfObj, function (element, index, collection){
+    return arrOfObj[index][property];
+  });
+}
 
 
 /** _.contains()
@@ -307,6 +370,10 @@ _.indexOf = function (array, value){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+_.contains = function(array, value){
+ return array.includes(value) ? true : false;   
+}
 
 
 /** _.every()
