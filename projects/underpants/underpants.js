@@ -397,6 +397,31 @@ _.contains = function(array, value){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function (collection, test) {
+  if (test){
+    const filteredValues = _.filter(_.map(collection, test), function (value){
+      return Boolean(value) === false;
+    });
+    if (filteredValues[0] === false){
+      return false;
+    } else {
+      return true;
+    }
+  } else if (!test) {
+      const justValues = _.map(collection, function (value){
+        return Boolean(value);
+      });
+      const justFilteredValues = _.filter(justValues, function(value){
+        return value === false;
+      });
+    if (justFilteredValues[0] === false){
+      return false;
+    } else {
+      return true;
+    }
+  }
+};
+
 
 /** _.some()
 * Arguments:
@@ -419,6 +444,31 @@ _.contains = function(array, value){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function (collection, test) {
+if (test){
+    const filteredValues = _.filter(_.map(collection, test), function (value){
+      return Boolean(value) === true;
+    });
+    if (filteredValues[0] === true){
+      return true;
+    } else {
+      return false;
+    }
+  } else if (!test) {
+      const justValues = _.map(collection, function (value){
+        return Boolean(value);
+      });
+      const justFilteredValues = _.filter(justValues, function(value){
+        return value === true;
+      });
+    if (justFilteredValues[0] === true){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
 
 /** _.reduce()
 * Arguments:
@@ -439,6 +489,20 @@ _.contains = function(array, value){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function (array, action, seed){
+  let initialResult;
+  if (seed === undefined){
+    initialResult = array[0];
+  } else {
+    initialResult = seed;
+  }
+  let reducedValue = initialResult;
+  let arrayToReduce = array.slice(1);
+  _.each(arrayToReduce, function(value, index, collection){
+    reducedValue = action(reducedValue, value, index);
+  });
+  return reducedValue;
+};
 
 /** _.extend()
 * Arguments:
@@ -454,6 +518,20 @@ _.contains = function(array, value){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function (object){
+  let args = Array.from(arguments);
+  let initialObj = object;
+  let nextObjArray = args.slice(1, args.length);
+
+  _.each(nextObjArray, function(elementInCollec, key, collection){
+    _.each(nextObjArray[key], function(elementInCollec, key, collection){
+      initialObj[key] = elementInCollec;
+    });
+  });
+  return initialObj;
+  
+};
 
 
 // This is the proper way to end a javascript library
