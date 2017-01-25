@@ -490,20 +490,36 @@ if (test){
 */
 
 _.reduce = function (array, action, seed){
-  let counter;
+let counter;
   if (seed === undefined){
     counter = array[0];
     let reducedArray = array.slice(1);
     _.each(reducedArray, function(value, index, collection){
-      counter = action(counter, value, index);
-    });
-  } else {
-  counter = seed;
+      counter = action(counter, value, index + 1);
+    });  
+ } else {
+    counter = seed;
     _.each(array, function(value, index, collection){
       counter = action(counter, value, index);
     });
-  }return counter;
+  } return counter;
 };
+
+
+
+/*_.reduce = function(arr, action, seed) {
+   //loop thru elements in array.
+   //use return from function as prev result for next element
+   var prevResult;
+   if(seed === undefined) prevResult = arr[0];
+   _.each(arr, function(value, index, collection) {
+       return prevResult === undefined ? prevResult = seed : prevResult = action(prevResult, value, index);
+   });
+   return prevResult;    
+};
+*/
+
+
 
 /** _.extend()
 * Arguments:
@@ -522,15 +538,13 @@ _.reduce = function (array, action, seed){
 
 _.extend = function (object){
   let args = Array.from(arguments);
-  let initialObj = object;
-  let nextObjArray = args.slice(1, args.length);
 
-  _.each(nextObjArray, function(elementInCollec, key, collection){
-    _.each(nextObjArray[key], function(elementInCollec, key, collection){
-      initialObj[key] = elementInCollec;
+  _.each(args, function(elementInCollec, key, collection){
+    _.each(args[key], function(elementInCollec, key, collection){
+      object[key] = elementInCollec;
     });
   });
-  return initialObj;
+  return object;
   
 };
 
