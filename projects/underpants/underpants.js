@@ -122,14 +122,9 @@ _.first = function(array, number) {
 *   _.last(["a", "b", "c"], "ponies") -> ["a","b","c"]
 */
 
-// check if array, if not return []
-// check if number is really a number, if not return last element in array
-// default is to return number of items at end of array as specified by number
-// if number is neg, return {}
-// if number is greater than array.length, return all array
-
 _.last = function(array, number) {
     var lastSliceOfArray = [];
+    
     if (Array.isArray(array)) {
         if (typeof number !== "number") {
             return array[array.length-1];
@@ -190,17 +185,15 @@ _.each = function (collection, action){
 */
 
 _.indexOf = function (array, value){
-    var positionValue = [];
-    if (array.includes(value) === false){
-        return -1;
-    } else {
-        for (let i = 0; i < array.length; i++) {
-            if (value === array[i]) {
-               positionValue.push(i);
-            }
-        }
-      } return positionValue[0];
+  var positionValue = []
+  _.each(array, function(element, index, collection){
+    if (value === collection[index]){
+      positionValue.push(index);
+      }
+  });
+  return positionValue.length > 0 ? positionValue[0] : -1;
 };
+
 
 
 /** _.filter()
