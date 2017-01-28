@@ -58,8 +58,6 @@ _.typeOf = function(value) {
         return "array";
         } else if (value === null) {
         return "null";
-        } else if (value instanceof Date) {
-        return "date";
         } else {
           return "object";
         }
@@ -185,7 +183,7 @@ _.each = function (collection, action){
 */
 
 _.indexOf = function (array, value){
-  var positionValue = []
+  var positionValue = [];
   _.each(array, function(element, index, collection){
     if (value === collection[index]){
       positionValue.push(index);
@@ -365,8 +363,14 @@ _.pluck = function pluck(arrOfObj, property) {
 */
 
 _.contains = function(array, value){
- return array.includes(value) ? true : false;   
-}
+   let arrayContainsValue = [];
+  _.each(array, function(element){
+    if (element === value){
+    arrayContainsValue.push(true);
+    }
+  });
+  return arrayContainsValue[0] === true ? true : false;
+};
 
 
 /** _.every()
