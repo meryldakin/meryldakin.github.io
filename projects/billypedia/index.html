@@ -4,8 +4,8 @@
         <title>Billypedia</title>
         <link rel="stylesheet" href="css/site.css" type="text/css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash-compat/3.10.2/lodash.min.js"></script>
-        <!-- TODO 1 : Import jQuery from a CDN using a script tag -->
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
         <script src="lib/spin.min.js"></script>
         <script src="lib/pacifier.js"></script>
         <script src="index.js"></script>
@@ -14,9 +14,13 @@
     <body>
         <div id="all-contents"> 
             <nav>
+                <header><h1><a href="index.html">Billypedia</a></header>
                 <ul>
-                    <li><a href="index.html">Billypedia</a></li>
+                <h3><li><a href="https://meryldakin.github.io">Home</a></li>
+                <li><a href="https://meryldakin.github.io/portfolio.html">Portfolio</a></li>
+                <li><a href="https://meryldakin.github.io/studies.html">Studies</a></li></h3>
                 </ul>
+        </nav>
             </nav>
 
             <main>
@@ -25,7 +29,9 @@
                         <img id="image-billy" src="images/billy/billy-0.jpg" i="0" width="25%" class="image"></img>
                     </div>
                     <section id="section-top-rated" class="recordings">
-                        <header id="header-top-rated" class="header-recordings">Top Rated</header>
+                        <div id="header-boxes">
+                            <header id="header-top-rated" class="header-recordings">Top Rated Tracks</header>
+                        </div>
                         <ul id="list-top-rated" class="list-recordings">
                             
                         </ul>
@@ -33,7 +39,7 @@
                 </div>
 
                 <div class="content">
-                    <h2 class="heading heading-article">Billy Higgins</h2>
+                    <h1 class="heading heading-article">Billy Higgins</h1>
                     <div id="sections">
                         <section id="section-bio">
                             <h3>Bio</h3>

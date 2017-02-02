@@ -504,20 +504,6 @@ let counter;
 
 
 
-/*_.reduce = function(arr, action, seed) {
-   //loop thru elements in array.
-   //use return from function as prev result for next element
-   var prevResult;
-   if(seed === undefined) prevResult = arr[0];
-   _.each(arr, function(value, index, collection) {
-       return prevResult === undefined ? prevResult = seed : prevResult = action(prevResult, value, index);
-   });
-   return prevResult;    
-};
-*/
-
-
-
 /** _.extend()
 * Arguments:
 *   1) An Object

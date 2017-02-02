@@ -1,14 +1,94 @@
-body {
-    background: rgb(125, 198, 205);
-    color: rgb(45, 45, 45);
-    padding: 10px;
-    font-family: arial;
-}
-
 header {
+    font-family: Raleway;
     font-size: 1.5em;
     font-weight: bold;
 }
+
+body {
+    background: rgb(17, 198, 205);
+    color: rgb(45, 45, 45);
+    padding: 10px;
+}
+h1 {
+	font-family: Raleway;
+	font-size: 23px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+h3 {
+	font-family: Raleway;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+h2 {
+	font-family: Raleway;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+p {
+	font-family: Raleway;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+blockquote {
+	font-family: Raleway;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+pre {
+	font-family: Raleway;
+	font-size: 11px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+li {
+	font-family: Raleway;
+	font-size: 11px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+}
+
+table {
+    table-layout: fixed;
+    border-style: solid;
+    border-color: black;
+    padding: 6px;
+    font-family: Raleway;
+    
+    
+}
+
+tr {
+    display: table-row;
+    background: #24938;
+    padding: 4px;
+}
+
+td {
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    padding: 4px;
+}
+
 
 [id=all-contents] {
     max-width: 800px;
@@ -17,33 +97,32 @@ header {
 
 
 /* navigation menu */
-
+/* navigation menu */
 nav {
-    background: rgb(239, 80, 41);
+    border: 2px solid;
+    border-radius: 25px;
+    background: rgb(259, 80, 41);
     margin: 0 auto;
+    margin-bottom: 20px;
     display: flex;
     padding: 10px;
 }
-
 nav header {
     display: flex;
     align-items: center;
     color: rgb(255, 255, 255);
     flex: 1;
 }
-
 nav ul {
     -moz-padding-start: 0;
     -webkit-padding-start: 0;
     list-style-image: none;
 }
-
 nav li {
     display: inline-block;
     padding: 0 10px;
     font-size: 1.2em;
 }
-
 nav a {
     text-decoration: none;
     color: #fff;
@@ -74,10 +153,89 @@ main {
 
 [class=discography] header {
     font-size: 1.25em;
+    font-family: Raleway;
+}
+
+.header-boxes {
+    min-width: 220px;
+    background-color: rgb(125, 198, 205);
+    border-width: thin;
+    border-color: black;
+}
+
+.top-rated {
+    cursor: pointer;
+}
+
+.top-rated:hover {
+    color:rgb(125, 198, 205);
+}
+
+.general-recordings-list:hover {
+    color:rgb(125, 198, 205);
+}
+
+.general-recordings-list {
+    cursor: pointer;
+}
+
+.li-text {
+	font-family: Raleway;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+	cursor: pointer;
+}
+.li-text:hover {
+	color:rgb(125, 198, 205);
+}
+
+.quote {
+    font-style: oblique;
+}
+
+.table-header {
+    font-family: Raleway;
+    font-size: medium;
 }
 
 #image-billy {
-    border: 2px solid;
-    border-color: rgba(255, 255, 255, 1);
+    border: 6px;
+    border-style: double;
+    border-radius: 25px;
+    border-color: rgb(125, 198, 205);
     cursor: pointer; cursor: hand;
 }
+
+#top-rated-image {
+    min-width: 220px;
+    min-height: 220px;
+    
+}
+
+#image-container-recording {
+    min-width: 220px;
+    min-height: 220px;
+}
+#image-container-billy {
+    min-width: 220px;
+    min-height: 220px;
+}
+
+#image1 {
+    border: 6px;
+    border-style: double;
+    border-radius: 25px;
+    border-color: rgb(125, 198, 205);
+}
+
+#image2 {
+    border: 6px;
+    border-style: double;
+    border-radius: 25px;
+    border-color: rgb(125, 198, 205);
+}
+
+    /* add style rules here for top rated list */ 
