@@ -55,9 +55,24 @@ header {
     font-size: 1.5em;
     font-weight: bold;
 }
+
+li {
+	font-family: Raleway;
+}
+
+
+
 [id=all-contents] {
     max-width: 800px;
     margin: auto;
+}
+.p {
+	font-family: Raleway;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
 }
 
 /* navigation menu */
