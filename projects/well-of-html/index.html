@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/notes/notes.js"></script>
+    <title>A Well of HTML</title>
+    <style type="text/css">
+        
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <!-- ALL YOUR MARKUP GOES BELOW HERE -->
+        <h1>All of my favorite things</h1>
+        <div>
+            <div class="flex-row">
+                <div>One</div>
+                <div>Two</div>
+                <div>Three</div>
+                <div>Four</div>
+                <div>Five</div>
+            </div>
+        </div>
+        
+        <div>
+            <h2>1: Cats</h2>
+            <a href="https://en.wikipedia.org/wiki/Siamese_cat"> An interesting read on Siamese Cats.</a>
+            <h6>But first, here's a picture of another favorite thing:</h6>
+            <img src="img/cherries.jpg" />
+        </div>
+        
+        <div>
+            <h3>What you need to know</h3>
+            <p>Let's get to the basics: cats are great, and so are cherries. It's important to 
+            remember the best parts of life, like cats and cherries, when things get you down.</p>
+            
+            <p>When cats live indoors all the time, they can sometimes get <b>fat</b>. This
+            isn't a healthy thing, so keeping toys around, like <i>lasers</i>, and don't
+            feed them <em>too much!</em></p>
+        </div>
+        <div>
+            <p>Now I'll introduce my cats, in order of oldest to youngest:</p>
+            <ol>
+                <li>CheeWee</li>
+                <li>SwampCat</li>
+                <li>BabyCat</li>
+                <li>AlleyCat</li>
+                <li>Graby</li>
+            </ol>
+        </div>
+        
+        <div>
+            <p>So three of these guys are inside and two live outside. To keep the 
+            inside cats from getting too fat, here's a list of tricks:</p>
+            <h5>Tricking Cats</h5>
+            <ul>
+                <li>Tie pipe-cleaners to your chairs</li>
+                <li>Put their food at the end of a cat-obstacle course</li>
+                <li>Join a cat-and-owner yoga class</li>
+                <li>Hold daily cat relay races</li>
+                <li>Move out of your mom's house, because moms are suckers for cats pretending to be hungry all the time</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Hey! What about your cats? Tell us about them below!</h4>
+            
+            <form class="example-form">
+                <div>
+                    <label for="name">Favorite Cat's Name:</label>
+                    <input type="text" id="name" />
+                </div>
+                <div>
+                    <label for="trick-story">Your cat's best attempt to trick you into feeding it more often than you should:</label>
+                    <textarea id="trick-story"></textarea>
+                </div>
+                <div>
+                    <label for="qualities">Check off some qualities your cat has:</label>
+                    <input type="checkbox" name="qualities" value="Impish" class="left"> Impish<br>
+                    <input type="checkbox" name="qualities" value="Affectionate"> Affectionate<br>
+                    <input type="checkbox" name="qualities" value="Brainless"> Brainless<br>
+                    <input type="checkbox" name="qualities" value="Hungry"> Hungry<br>
+                    <input type="checkbox" name="qualities" value="Magical" checked="checked"> Magical<br>
+                </div>
+                <div>
+                    <label for="mail">What's your email address?</label>
+                    <input type="email" id="mail" />
+                </div>
+                <div class="button">
+                    <button type="submit">Submit your cat story!</button>
+                </div>
+            </form>
+        </div>
+        
+        <div>
+            <h2>Enough cats!</h2>
+            <p>Just kidding, never enough cats. Here's a table of the aforementioned cats
+            and their favorite toys!</p>
+            <h3>Favorite Toy Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat Name</th>
+                        <th>Favorite Toy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CheeWee</td>
+                        <td>The Wall</td>
+                    </tr>
+                    <tr>
+                        <td>SwampCat</td>
+                        <td>Pipe Cleaners</td>
+                    </tr>
+                    <tr>
+                        <td>BabyCat</td>
+                        <td>Fingers</td>
+                    </tr>
+                    <tr>
+                        <td>AlleyCat</td>
+                        <td>The Stairs</td>
+                    </tr>
+                    <tr>
+                        <td>Graby</td>
+                        <td>AlleyCat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Artist Rendition of Cats</h3>
+            <div class="example-grid">
+                <div class="row">
+                    <div class="col-md-2">
+                            <img src="http://exmoorpet.com/wp-content/uploads/2012/08/cat.png" class="row-img"></img>
+                    <div class="col-md-10">CheeWee, the oft absent patriarch</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/Cat.png" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">SwampCat, harbors an unrequited love for CheeWee</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/kit.jpg" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">BabyCat, spends days plotting CheeWee's demise</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/mow.jpg" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">AlleyCat, defends the loveseat from interloper Graby</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/wierd-bad-cat.jpg" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">Little Graby, meow shatters glass</div>
+                </div>
+            </div>
+        </div>
+    
+        
+        
+        <!-- ALL YOUR MARKUP GOES ABOVE HERE -->
+    </div>
+    <script>
+        $(function () {
+            window.opspark.notes.show();
+        });
+    </script>
+</body>
+
+</html>
