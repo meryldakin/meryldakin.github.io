@@ -22,8 +22,8 @@
         <div>
             <div class="flex-row">
                 <div><h4><a href="#basics">Basics</a></h4></div>
-                <div><h4><a href="#input">Submit form</a></h4></div>
                 <div><h4><a href="#enough">Enough cats!</a></h4></div>
+                <div><h4><a href="#input">Your story</a></h4></div>
                 <div><h4><a href="#other">Other Favorites</a></h4></div>
             </div>
         </div>
@@ -68,33 +68,39 @@
         </div>
         
         <div>
-            <h4>Hey! What about your cats? Tell us about them below!</h4>
-            
-            <form class="example-form">
-                <div id="input">
-                    <label for="name">Favorite Cat's Name:</label>
-                    <input type="text" id="name" />
+            <h3>Artist Rendition of Cats</h3>
+            <div class="example-grid">
+                <div class="row">
+                    <div class="col-md-2"><img src="img/badcat.png" class="row-img img-responsive img-thumbnail"></img>
+                    </div>
+                    <div class="col-md-10"><h2>CheeWee</h2> 
+                    <p>The beautiful and the dense</p></div>
                 </div>
-                <div>
-                    <label for="trick-story">Your cat's best attempt to trick you into feeding it more often than you should:</label>
-                    <textarea id="trick-story"></textarea>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/Cat.png" class="row-img img-responsive img-thumbnail"></img>
+                    </div>
+                    <div class="col-md-10"><h2>SwampCat</h2>
+                    <p>So sweet, so fat</p></div>
                 </div>
-                <div>
-                    <label for="qualities">Check off some qualities your cat has:</label>
-                    <input type="checkbox" name="qualities" value="Impish" class="left"> Impish<br>
-                    <input type="checkbox" name="qualities" value="Affectionate"> Affectionate<br>
-                    <input type="checkbox" name="qualities" value="Brainless"> Brainless<br>
-                    <input type="checkbox" name="qualities" value="Hungry"> Hungry<br>
-                    <input type="checkbox" name="qualities" value="Magical" checked="checked"> Magical<br>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/kit.jpg" class="row-img img-responsive img-thumbnail"></img>
+                    </div>
+                    <div class="col-md-10"><h2>BabyCat</h2> 
+                    <p>Spends days plotting CheeWee's demise</p></div>
                 </div>
-                <div>
-                    <label for="mail">What's your email address?</label>
-                    <input type="email" id="mail" />
+                <div class="row">
+                    <div class="col-md-2"><img src="img/mow.jpg" class="row-img img-responsive img-thumbnail"></img>
+                    </div>
+                    <div class="col-md-10"><h2>AlleyCat</h2>
+                    <p>Loves nothing</p></div>
                 </div>
-                <div class="button">
-                    <button type="submit">Submit your cat story!</button>
+                <div class="row">
+                    <div class="col-md-2"><img src="img/wierd-bad-cat.jpg" class="row-img img-responsive img-thumbnail"></img>
+                    </div>
+                    <div class="col-md-10"><h2>Little Graby</h2> 
+                    <p>Meow shatters glass</p></div>
                 </div>
-            </form>
+            </div>
         </div>
         
         <div id="enough">
@@ -134,39 +140,33 @@
             </table>
         </div>
         <div>
-            <h3>Artist Rendition of Cats</h3>
-            <div class="example-grid">
-                <div class="row">
-                    <div class="col-md-2"><img src="img/badcat.png" class="row-img img-responsive img-thumbnail"></img>
-                    </div>
-                    <div class="col-md-10"><h2>CheeWee</h2> 
-                    <p>The beautiful and the dense</p></div>
+            <h4>Hey! What about your cats? Tell us about them below!</h4>
+            
+            <form class="example-form">
+                <div id="input">
+                    <label for="name">Favorite Cat's Name:</label>
+                    <input type="text" id="name" />
                 </div>
-                <div class="row">
-                    <div class="col-md-2"><img src="img/Cat.png" class="row-img img-responsive img-thumbnail"></img>
-                    </div>
-                    <div class="col-md-10"><h2>SwampCat</h2>
-                    <p>So sweet, so fat</p></div>
+                <div>
+                    <label for="trick-story">Your cat's best attempt to trick you into feeding it more often than you should:</label>
+                    <textarea id="trick-story"></textarea>
                 </div>
-                <div class="row">
-                    <div class="col-md-2"><img src="img/kit.jpg" class="row-img img-responsive img-thumbnail"></img>
-                    </div>
-                    <div class="col-md-10"><h2>BabyCat</h2> 
-                    <p>Spends days plotting CheeWee's demise</p></div>
+                <div>
+                    <label for="qualities">Check off some qualities your cat has:</label>
+                    <input type="checkbox" name="qualities" value="Impish" class="left"> Impish<br>
+                    <input type="checkbox" name="qualities" value="Affectionate"> Affectionate<br>
+                    <input type="checkbox" name="qualities" value="Brainless"> Brainless<br>
+                    <input type="checkbox" name="qualities" value="Hungry"> Hungry<br>
+                    <input type="checkbox" name="qualities" value="Magical" checked="checked"> Magical<br>
                 </div>
-                <div class="row">
-                    <div class="col-md-2"><img src="img/mow.jpg" class="row-img img-responsive img-thumbnail"></img>
-                    </div>
-                    <div class="col-md-10"><h2>AlleyCat</h2>
-                    <p>Not okay with Graby</p></div>
+                <div>
+                    <label for="mail">What's your email address?</label>
+                    <input type="email" id="mail" />
                 </div>
-                <div class="row">
-                    <div class="col-md-2"><img src="img/wierd-bad-cat.jpg" class="row-img img-responsive img-thumbnail"></img>
-                    </div>
-                    <div class="col-md-10"><h2>Little Graby</h2> 
-                    <p>Meow shatters glass</p></div>
+                <div class="button">
+                    <button type="submit">Submit your cat story!</button>
                 </div>
-            </div>
+            </form>
         </div>
         <div id="other">
             <h2>And that's the list!</h2>
