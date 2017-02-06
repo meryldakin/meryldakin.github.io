@@ -1,3 +1,16 @@
+body {
+    background: rgb(17, 198, 205);
+    color: rgb(45, 45, 45);
+    padding: 10px;
+}
+
+main {
+    background: rgb(245, 238, 219);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+/*******form*********/
 .example-form {
     /* Just to center the form on the page, use: margin: 0 auto;*/
     margin: 20px;
@@ -76,19 +89,18 @@ td {
     justify-content: space-between;
     margin: 20px;
     padding: 4px;
+    border-color: black;
+    border-style: groove;
+    border-width: thin;
+    border-radius: 25px;
+    border: 2px solid;
+
+    
+    
+    
 }
 
 /**************Images********************/
-.thumbnail {
-    height: 100px;
-    width: 200px;
-}
-
-.thumbnail img{
-    max-height: 100%;
-    max-width: 100%;
-    border: 1px solid red;
-}
 
 .example-grid {
     margin: 20px;
