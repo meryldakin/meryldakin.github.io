@@ -11,17 +11,58 @@
         <script type="text/javascript" src="js/lib/spin.min.js"></script>
         <script type="text/javascript" src="js/view/pacifier.js"></script>
         <script type="text/javascript" src="js/products.js"></script>
-        <title>Phones R us</title>
+        <title>The UnStore</title>
     </head>
     <body>
         <div id="container" class="container">
             <nav>
-                <h1>Phones R Us</h1>
+                <!--Jumbotron-->
+                <div class="jumbotron">
+                      <div class="container">
+                        <h1>The UnStore</h1>
+                        <p>Find limited information on 11 randomly seleted phones you can definitely purchase somewhere else (but not here).</p>
+                      </div>
+                    </div>
+                
+                <!--Featured Phones-->
+                <div class="page-header" id="featured">
+                  <h1><small>Featured Products:</small></h1>
+                  <p class="lead">Click image to jump to details</p>
+                </div>
+                <div class="row">
+                  <div class="col-xs-6 col-md-3">
+                    <a href="#product-title7" class="thumbnail">
+                      <img src="img/product/thumbs/iphone-6-silver.jpg">
+                    </a>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <a href="#product-title9" class="thumbnail">
+                      <img src="img/product/thumbs/iphone-6-case-green.jpg">
+                    </a>
+                  </div>
+                  <div class="col-xs-6 col-md-3">
+                    <a href="#product-title3" class="thumbnail">
+                      <img src="img/product/thumbs/edge-white.jpg">
+                    </a>
+                  </div>
+                    <div class="col-xs-6 col-md-3">
+                    <a href="#product-title10" class="thumbnail">
+                      <img src="img/product/thumbs/iphone-6-plus-case-gold.jpg">
+                    </a>
+                  </div>
+                  
+                </div>
+                
+            </nav>   
                 <!-- Add search bar -->
-            </nav>
+            
             <main>
+                <div>
+                  <h1><small>Search for your favorites:</small></h1>
+                  
+                </div>
                 <div id="search-filter">
-                    <input type="text" class="live-search-box" placeholder="search by name, carrier, type, color, price, etc." />
+                    <input type="text" class="live-search-box" id="search" placeholder="search by name, carrier, type, color, price, etc." />
                 
                 </div>
                 
