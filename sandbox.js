@@ -24,7 +24,7 @@ $(function () {
                     $("<div>")
                     .attr("class", "row filter-row")
                     .attr("id", "phoneRow")
-                    .appendTo($productSection)
+                    
                     // DIV COL Image, 2
                     .append($('<div>')
                         .attr("class", "col-xs-2")
@@ -49,9 +49,10 @@ $(function () {
                             .append($("<div>")
                                 .attr("class", "col-xs-12")
                                 .append($("<button>")
-                                    .attr("id", "modal-button")
-                                    .attr("class", "btn btn-info btn-block")
-                                    .text("Magnify")
+                                    .attr("id", "modal-button" + index)
+                                    .attr("class", "btn btn-info btn-block glyphicon glyphicon-zoom-in")
+                                    .attr("data-toggle","modal")
+                                    .attr("data-target", "#myModal")
                                 
                                 ) // end btn
                             
@@ -73,40 +74,66 @@ $(function () {
                                 .attr("class", "col-xs-12 lead product-name")
                                 .text(values.desc)
                                 .attr("id", "product-title" + index)
+                                
                             )
                         )
                         //DIV ROW Price, Stock
+                        
                         .append($("<div>")
-                            .attr("class", "row")
-                            // DIV COL Price, 6
+                            .attr("class", "row panel panel-default")
+                            // DIV COL Price, 4
                             .append($("<div>")
-                                .attr("class", "col-xs-6 h4")
-                                .text("Price: " + values.price)
+                                .attr("class", "col-xs-3 h4")
+                                .text("Price: $" + values.price)
                                 .attr("id", "price-id"+index)
                             )
-                            //DIV COL Stock, 6
+                            //DIV COL Stock, 4
                             .append($("<div>")
-                                .attr("class", "col-xs-6 h4 stock-number")
+                                .attr("class", "col-xs-3 h4 stock-number")
                                 .text("In Stock: " + values.stock)
                                 .attr("id", "stock-id"+index)
                             )
+                            
+                            //DIV COL Specs, 4
+                            .append($("<div>")
+                                .attr("class", "col-xs-3 h4 specs-title")
+                                .text("Specs ")
+                                .attr("id", "specs-title" + [index])
+                                .append($("<span>")
+                                    .attr("class", "glyphicon glyphicon-question-sign")
+                                )
+                            )
+                            //DIV COL Search, 4
+                            .append($("<div>")
+                                .attr("class", "col-xs-3 h4 to-search text-info")
+                                .text("Search Again ")
+                                .append($("<span>")
+                                    .attr("class", "glyphicon glyphicon-search")
+                                )
+                            )
                         )
                         // DIV ROW Specs
-                        .append($("<div>").attr("class", "row")
+                        .append($("<div>")
+                            .attr("class", "row")
                             .attr("id", "specs-row" + index)
-                            // DIV COL Spec Title, 2
-                            .append($("<div>")
-                                .attr("class", "col-xs-2 h4 specs-title")
-                                .text("Specs:")
-                            )
+                        )
                             // DIV COL Spec Details, 10
                             .append($("<div>")
-                                .attr("class", "col-xs-10 specs-details")
-                                .text(values.specs)
+                                .attr("class", "col-xs-12 specs-details")
+                                .attr("id", "specs-details" + [index])
+                                .append($("<ul>")
+                                    // .append($("<li>")
+                                        .attr("id", "specs-list"+index)
+                                        .append($("<div>")
+                                            .text(values.specs)
+                                        )
+                                    // )
+                                )
+                                
                             )
                         )
                     )
-                );
+                ;
         });
         
 /*****************SEARCH BAR***********************************************/        
@@ -129,17 +156,103 @@ $(function () {
             });
         
         });
-/***************** END SEARCH BAR***********************************************/            
+/***************** MODAL ***********************************************/            
 
-
-        
-        
-        
+    let imageArray = _.map(data, function(value){
+        return "img/product/" + value.image;
+    });
     
+    let phoneTitles = _.map(data, function(value){
+        return value.desc;
+    });
+    
+    let specsText = _.map(data, function(value){
+        return value.specs;
+    });
+    
+    let altColors = _.map(data, function(value){
+        return value.availableColors;
+    });
+    
+    let colorSentence = _.map(altColors, function(value, index) {
+        let sent = []
+        _.each(value, function(val, i){
+            if (value.indexOf(val) === value.length -1){
+                sent.push("and " + val + ".")
+            } else {
+                sent.push(val + ", ");
+            }
+        })
+        return sent.join("");
+    })
+    
+    _.map(phoneTitles, function(value, index){
+        $("#modal-button"+ index).on('click',function(){
+            let title = $('#myModalLabel').text(value);
+            let image = $('#modal-image').attr("src", imageArray[index]).attr("class", "img-responsive center-block");
+            let availColors = $('#alt-colors').text("Also available in " + colorSentence[index]).attr("class", "lead");
+        });
+    });
+    
+    /**************************Specs in bullets********************/
+    // let specsList = _.map(data, function(value){
+    //     return value.specs;
+    // });
+    
+    // let wrapSpecs = _.map(specsList, function(specArr, index){
+    //      _.each(specArr, function(spec, ind){
+    //         return $(spec).wrap("<li>");
+    //     });
+    // });
+    
+    // console.log(wrapSpecs);
+    
+   
+    
+    /************************Adding Low Stock Feature******************/
 
+    let stockNums = _.map(data, function(value) {
+        return value.stock;
+    })
+    console.log(stockNums);
+    
+    let lowStock = _.each(stockNums, function(stockNum, index){
+        if (stockNum < 10){
+            return $("#stock-id"+index).text("Only " + stockNum + " left!").attr("class", "h4 text-danger col-xs-3");
+        }
+    })
+    
+    /*******************Adding hyperlink to search button***********/
+    
+    $(".to-search").wrap('<a href="#featured"/>')
+    
+    /********************Add hide/show to specs*********************/
+    $(".specs-details").hide();
+    
+    let showSpecs = _.each(".specs-title", function(element, index){
+        return $("#specs-title" + index).click(function(){
+            $("#specs-details" + index).toggle();
+        });
+        
+    });
+    
+    $(".specs-title").hover(function(){
+        return $(this).css('cursor', 'pointer');
+    });
+    
+    
   
   
     });
   
   // ALL YOUR CODE GOES ABOVE HERE //
 });
+
+
+/*
+
+Things to finish:
+- Add alt text on featured phones
+- add link to jump to spot on page
+- add bullets for specs
+*/
